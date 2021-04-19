@@ -29,11 +29,10 @@
 }
 
 .box-movie{
-  min-height: 300px;
-  width: 250px;
-  margin-left: 60px;
-  margin-bottom: 40px;
-  background-color: red;
+  height: 400px;
+  width: 310px;
+  margin: 30px;
+  /* background-color: red; */
 }
 
 .box-description-movie{
@@ -42,7 +41,7 @@
   background-color: black;
   border: 2px solid white;
   display: none;
-  padding: 20px;
+  padding: 10px;
 }
 
 .box-movie:hover .box-description-movie{
@@ -57,4 +56,20 @@ p{
   height: 85vh;
   overflow-y: scroll;
 
+}
+
+.box-description-movie p img {
+  width: 30px;
+}
+
+.box-movie > img{
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+}
+
+
+
+.box-movie:hover .copertina{
+  display: none;
 }

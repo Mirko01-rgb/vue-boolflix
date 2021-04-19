@@ -6,6 +6,7 @@ function initVue() {
           searchInput:'',
 
           series:[],
+          img: 'https://image.tmdb.org/t/p/w342'
 
         },
 
@@ -29,7 +30,7 @@ function initVue() {
              const results = data.data.results;
              this.movies = results;
              //console.log(this.movies);
-             
+
            })
            .catch(() => console.log('error'));
          },
