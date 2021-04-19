@@ -25,12 +25,13 @@
   padding-top: 30px ;
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .box-movie{
   min-height: 300px;
-  width: 210px;
-  margin-left: 40px;
+  width: 250px;
+  margin-left: 60px;
   margin-bottom: 40px;
   background-color: red;
 }
