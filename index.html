@@ -26,8 +26,8 @@
        <div class="nav-bar flex">
          <h1>Boolfix</h1>
          <div>
-           <input v-model='searchMovie' type="text" placeholder="Search">
-           <button @click= 'send' type="button" name="button">Invio</button>
+           <input v-model='searchInput' type="text" placeholder="Search">
+           <button @click= 'send(), sendSeries()' type="button" name="button">Invio</button>
          </div>
 
 
@@ -42,9 +42,26 @@
            <div  class="box-description-movie">
              <p>Titolo: {{movie.title}}</p>
              <p>Titolo Originale: {{movie.original_title}}</p>
-             <p>Lingua: {{movie.original_language}} </p>
+             <p v-if= "movie.original_language  == 'en' " >Lingua: <img width="30px"src="img/uk.png" alt=""></p>
+             <p v-else= "movie.original_language == 'it' " >Lingua: <img width="30px"src="img/italia.png" alt=""></p>
+             <p v-else>Lingua: {{movie.original_language}}</p>
              <p>Voto: {{movie.vote_average}}</p>
-             <!-- <p>Overview: {{movie.overview}}</p> -->
+             <p>Overview: {{movie.overview}}</p>
+
+           </div>
+         </div>
+
+
+         <div v-for= 'serie in series' class="box-movie ">
+         <!-- <img :src="{{movie.backdrop_path}}" alt="movie">  -->
+           <div  class="box-description-movie">
+             <p>Titolo: {{serie.title}}</p>
+             <p>Titolo Originale: {{serie.original_title}}</p>
+             <p v-if= "serie.original_language  == 'en' " >Lingua: <img width="30px"src="img/uk.png" alt=""></p>
+             <p v-else= "serie.original_language == 'it' " >Lingua: <img width="30px"src="img/italia.png" alt=""></p>
+             <p v-else>Lingua: {{serie.original_language}}</p>
+             <p>Voto: {{serie.vote_average}}</p>
+             <p>Overview: {{serie.overview}}</p>
 
            </div>
          </div>
