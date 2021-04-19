@@ -2,30 +2,35 @@ function initVue() {
     new Vue({
         el: '#app',
         data: {
-          dischi:[],
-          //singe:[],
-
-
+          movies:[],
+          searchMovie:''
         },
-        mounted() {
 
-            axios.get('https://api.themoviedb.org/3/search/movie',{
+        methods:{
+          send: function(){
+           //console.log(this.searchMovie);
 
-              params: {
-                'api_key': '240c7ea35ff41488d7c3cc3a869f8ccc',
-                'query': 'The matrix'
+           axios.get('https://api.themoviedb.org/3/search/movie' ,{
 
-              }
-            })
-            .then(data => {
-              //console.log(data.data.results[0].original_title);
+             params: {
+               'api_key': '240c7ea35ff41488d7c3cc3a869f8ccc',
+               'query':this.searchMovie
 
+             }
+           })
 
+           .then(data => {
+             console.log(data.data.results);
+             //console.log(data.data.results[0].original_title);
 
-
-            })
-            .catch(() => console.log('error'));
+             const results = data.data.results;
+             this.movies = results;
+             //console.log(this.movies);
+           })
+           .catch(() => console.log('error'));
+          }
         }
+
 
     });
 }

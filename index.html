@@ -26,8 +26,8 @@
        <div class="nav-bar flex">
          <h1>Boolfix</h1>
          <div>
-           <input type="text" placeholder="Search">
-           <button type="button" name="button">Invio</button>
+           <input v-model='searchMovie' type="text" placeholder="Search">
+           <button @click= 'send' type="button" name="button">Invio</button>
          </div>
 
 
@@ -37,12 +37,14 @@
      <main>
        <div class="main scroll">
 
-         <div class="box-movie ">
-           <div class="box-description-movie">
-             <p>Titolo: CIAO</p>
-             <p>Titolo Originale: CIAOOOO</p>
-             <p>Voto: STELLE</p>
-             <p>Overview</p>
+         <div v-for= 'movie in movies' class="box-movie ">
+         <!-- <img :src="{{movie.backdrop_path}}" alt="movie">  -->
+           <div  class="box-description-movie">
+             <p>Titolo: {{movie.title}}</p>
+             <p>Titolo Originale: {{movie.original_title}}</p>
+             <p>Lingua: {{movie.original_language}} </p>
+             <p>Voto: {{movie.vote_average}}</p>
+             <!-- <p>Overview: {{movie.overview}}</p> -->
 
            </div>
          </div>
