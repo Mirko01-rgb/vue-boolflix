@@ -48,27 +48,26 @@
              <p v-else= "movie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
              <p v-else>Lingua: {{movie.original_language}}</p>
              <p>Voto: {{movie.vote_average}}</p>
-             <p v-if= 'movie.overview.length < 250'>Overview: {{movie.overview.slice(0, 250)}}</p>
-             <p v-else>Overview: {{movie.overview.slice(0, 250)}}...</p>
+             <p v-if= 'movie.overview.length <150'>Overview: {{movie.overview.slice(0,150)}}</p>
+             <p v-else>Overview: {{movie.overview.slice(0,150)}}...</p>
 
            </div>
          </div>
 
 
          <div v-for= 'serie in series' class="box-movie ">
-           <img v-if='movie.backdrop_path == null ' class="copertina" src="img/notfound.png" alt="notfound">
+           <img v-if='serie.backdrop_path == null ' class="copertina" src="img/notfound.png" alt="notfound">
            <img v-else class="copertina" :src=" img + serie.backdrop_path" alt="movie">
            <div  class="box-description-movie">
              <h5>SERIES</h5>
-             <p>Titolo: {{serie.title}}</p>
-             <p>Titolo Originale: {{serie.original_title}}</p>
+             <p>Titolo: {{serie.name}}</p>
+             <p>Titolo Originale: {{serie.original_name}}</p>
              <p v-if= "serie.original_language  == 'en' " >Lingua: <img src="img/uk.png" alt=""></p>
              <p v-else= "serie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
              <p v-else>Lingua: {{serie.original_language}}</p>
              <p>Voto: {{serie.vote_average}}</p>
-             <p>Overview: {{serie.overview}}</p>
-             <p v-if= 'serie.overview.length < 250'>Overview: {{serie.overview.slice(0,250)}}</p>
-             <p v-else>Overview: {{serie.overview.slice(0,250)}}...</p>
+             <p v-if= 'serie.overview.length < 150'>Overview: {{serie.overview.slice(0,150)}}</p>
+             <p v-else>Overview: {{serie.overview.slice(0,150)}}...</p>
 
 
            </div>

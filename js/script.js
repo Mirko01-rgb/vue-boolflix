@@ -29,7 +29,7 @@ function initVue() {
 
              const results = data.data.results;
              this.movies = results;
-             //console.log(this.movies);
+             console.log('Film: ', this.movies);
 
            })
            .catch(() => console.log('error'));
@@ -37,7 +37,7 @@ function initVue() {
 
 
 
-        //serie tv
+         //serie tv
          sendSeries: function(){
           //console.log(this.searchseries);
 
@@ -52,12 +52,9 @@ function initVue() {
           })
 
           .then(data => {
-            console.log(data.data.results);
-            //console.log(data.data.results[0].original_title);
-
             const resultseries = data.data.results;
             this.series = resultseries;
-            console.log(this.series);
+            console.log( 'Serie tv: ', this.series);
 
           })
           .catch(() => console.log('error'));
