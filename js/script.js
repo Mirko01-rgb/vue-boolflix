@@ -5,6 +5,7 @@ function initVue() {
           movies:[],
           searchInput:'',
 
+
           series:[],
           img: 'https://image.tmdb.org/t/p/w342'
 
@@ -12,7 +13,8 @@ function initVue() {
 
         methods:{
           send: function(){
-           //console.log(this.searchMovie);
+           console.log(this.searchInput);
+
 
            axios.get('https://api.themoviedb.org/3/search/movie' ,{
 
@@ -33,6 +35,8 @@ function initVue() {
 
            })
            .catch(() => console.log('error'));
+
+
          },
 
 
@@ -58,6 +62,17 @@ function initVue() {
 
           })
           .catch(() => console.log('error'));
+          this.searchInput='';
+
+        },
+
+         vote: function( numVote){
+           //console.log(numVote);
+           const vote5 = Math.round(numVote/2);
+           //console.log(vote5);
+           return vote5;
+
+
          }
 
         }
