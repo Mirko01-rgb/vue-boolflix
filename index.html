@@ -24,9 +24,9 @@
 
      <header>
        <div class="nav-bar flex">
-         <h1>Boolfix</h1>
+         <img src="img/site-logo.png" alt="logo">
          <div>
-           <input v-model='searchInput' type="text" placeholder="Search">
+           <input   v-model='searchInput' type="text" placeholder="Search">
            <button @click= 'send(), sendSeries()' type="button" name="button">Invio</button>
          </div>
 
@@ -35,57 +35,56 @@
      </header>
 
      <main>
-       <div class="main scroll">
 
-         <div v-for= 'movie in movies' class="box-movie ">
-          <img v-if='movie.backdrop_path == null ' class="copertina" src="img/notfound.png" alt="">
-          <img v-else class="copertina" :src=" img + movie.backdrop_path" alt="movie">
-           <div  class="box-description-movie">
-             <h5>FILM</h5>
-             <p>Titolo: {{movie.title}}</p>
-             <p>Titolo Originale: {{movie.original_title}}</p>
-             <p v-if= "movie.original_language  == 'en' " >Lingua: <img src="img/uk.png" alt=""></p>
-             <p v-else= "movie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
-             <p v-else>Lingua: {{movie.original_language}}</p>
-             <p>Voto:
-               <i v-for=' (star, index) in 5' :class="vote( movie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
-             </p>
-             <p v-if= 'movie.overview.length <60'>Overview: {{movie.overview.slice(0,60)}}</p>
-             <p v-else>Overview: {{movie.overview.slice(0,60)}}...</p>
+        <div class= "main"  >
 
-           </div>
-         </div>
+          <!-- se gli array movies e series sono vuoti -->
+          <div v-if="movies == '' && series == '' " class="flex-logo" >
+            <img style="width:450px" src="img/site-logo.png" alt="logo">
+          </div>
 
+          <!-- FILM -->
+          <div class="flex-main ">
+            <div v-for= 'movie in movies' class="box-movie ">
+             <img v-if='movie.poster_path == null ' class="copertina" src="img/notfound.png" alt="">
+             <img v-else class="copertina" :src=" img + movie.poster_path" alt="movie">
+              <div  class="box-description-movie">
+                <h2>FILM</h2>
+                <p>Titolo: {{movie.title}}</p>
+                <p>Titolo Originale: {{movie.original_title}}</p>
+                <p v-if= "movie.original_language  == 'en' " >Lingua: <img src="img/uk.png" alt=""></p>
+                <p v-else= "movie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
+                <p v-else>Lingua: {{movie.original_language}}</p>
+                <p>Voto:
+                  <i v-for=' (star, index) in 5' :class="vote( movie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
+                </p>
+                <p v-if= 'movie.overview.length <60'>Overview: {{movie.overview.slice(0,60)}}</p>
+                <p v-else>Overview: {{movie.overview.slice(0,60)}}...</p>
 
-         <div v-for= 'serie in series' class="box-movie ">
-           <img v-if='serie.backdrop_path == null ' class="copertina" src="img/notfound.png" alt="notfound">
-           <img v-else class="copertina" :src=" img + serie.backdrop_path" alt="movie">
-           <div  class="box-description-movie">
-             <h5>SERIES</h5>
-             <p>Titolo: {{serie.name}}</p>
-             <p>Titolo Originale: {{serie.original_name}}</p>
-             <p v-if= "serie.original_language  == 'en' " >Lingua: <img src="img/uk.png" alt=""></p>
-             <p v-else= "serie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
-             <p v-else>Lingua: {{serie.original_language}}</p>
-             <p>Voto:
-               <i v-for=' (star, index) in 5' :class="vote( serie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
-             </p>
-             <p v-if= 'serie.overview.length < 60'>Overview: {{serie.overview.slice(0,60)}}</p>
-             <p v-else>Overview: {{serie.overview.slice(0,60)}}...</p>
+              </div>
+            </div>
 
-
-           </div>
-         </div>
-
-       </div>
-
-     </main>
-
-
-
-
+            <!-- SERIE TV -->
+            <div v-for= 'serie in series' class="box-movie ">
+              <img v-if='serie.poster_path == null ' class="copertina" src="img/notfound.png" alt="notfound">
+              <img v-else class="copertina" :src=" img + serie.poster_path" alt="movie">
+              <div  class="box-description-movie">
+                <h2>SERIES</h2>
+                <p>Titolo: {{serie.name}}</p>
+                <p>Titolo Originale: {{serie.original_name}}</p>
+                <p v-if= "serie.original_language  == 'en' " >Lingua: <img src="img/uk.png" alt=""></p>
+                <p v-else= "serie.original_language == 'it' " >Lingua: <img src="img/italia.png" alt=""></p>
+                <p v-else>Lingua: {{serie.original_language}}</p>
+                <p>Voto:
+                  <i v-for=' (star, index) in 5' :class="vote( serie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
+                </p>
+                <p v-if= 'serie.overview.length < 60'>Overview: {{serie.overview.slice(0,60)}}</p>
+                <p v-else>Overview: {{serie.overview.slice(0,60)}}...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-
-
   </body>
 </html>

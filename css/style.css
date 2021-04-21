@@ -9,29 +9,44 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.flex-logo{
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-bar{
   height: 15vh;
   background-color: black;
   padding: 0 60px;
 }
 
-.nav-bar h1{
+ h1{
+  color: red;
+}
+
+h2{
   color: red;
 }
 
 .main{
   height: 85vh;
+  overflow-y: auto;
   background-color: grey;
-  padding-top: 30px ;
+  padding-left: 20px;
+}
+
+.flex-main{
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .box-movie{
-  height: 342px;
-  width: 260px;
-  margin: 30px;
+  height: 513px;
+  width:342px;
+  margin: 10px;
   /* background-color: red; */
 }
 
