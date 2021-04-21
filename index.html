@@ -50,8 +50,8 @@
              <p>Voto:
                <i v-for=' (star, index) in 5' :class="vote( movie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
              </p>
-             <p v-if= 'movie.overview.length <100'>Overview: {{movie.overview.slice(0,100)}}</p>
-             <p v-else>Overview: {{movie.overview.slice(0,100)}}...</p>
+             <p v-if= 'movie.overview.length <60'>Overview: {{movie.overview.slice(0,60)}}</p>
+             <p v-else>Overview: {{movie.overview.slice(0,60)}}...</p>
 
            </div>
          </div>
@@ -70,8 +70,8 @@
              <p>Voto:
                <i v-for=' (star, index) in 5' :class="vote( serie.vote_average) > index? 'fas fa-star' : 'far fa-star'"></i>
              </p>
-             <p v-if= 'serie.overview.length < 100'>Overview: {{serie.overview.slice(0,100)}}</p>
-             <p v-else>Overview: {{serie.overview.slice(0,100)}}...</p>
+             <p v-if= 'serie.overview.length < 60'>Overview: {{serie.overview.slice(0,60)}}</p>
+             <p v-else>Overview: {{serie.overview.slice(0,60)}}...</p>
 
 
            </div>
